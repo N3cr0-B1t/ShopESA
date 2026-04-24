@@ -1,0 +1,37 @@
+# =============================
+#   ShopESA — .gitignore
+#   PHP pur / XAMPP / MVC simple
+# =============================
+
+# Fichier de config sensible (identifiants BDD)
+config/db.php
+
+# Variables d'environnement
+.env
+.env.local
+
+# Dossier uploads (images produits)
+uploads/
+
+# Logs Apache / PHP
+*.log
+error_log
+
+# Fichiers système macOS
+.DS_Store
+
+# Fichiers système Windows
+Thumbs.db
+desktop.ini
+
+# Éditeurs de code (VS Code, PHPStorm...)
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dépendances Composer 
+vendor/
+
+# Cache phpMyAdmin 
+phpmyadmin/
