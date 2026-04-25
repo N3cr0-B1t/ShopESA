@@ -3,11 +3,12 @@
 session_start();
 require_once 'config/db.php';
 require_once 'controllers/AuthController.php';
+require_once 'controllers/ProductController.php';
 
 // Récupère la page demandée dans l'URL
 $page = isset($_GET['page']) ? $_GET['page'] : 'accueil';
 
-// Sécurité : pages autorisées uniquement
+// Sécurité :
 $pages_autorisees = [
     'accueil',
     'produits',
@@ -39,11 +40,18 @@ switch ($page) {
         gererDeconnexion();
         break;
 
+    case 'produits':
+        afficherCatalogue();
+        break;
+
+    case 'produit_detail':
+        afficherDetailProduit();
+        break;
+
     default:
 
         require_once 'views/partials/header.php';
 
-        // Charge la vue
         $vue = 'views/' . $page . '.php';
         if (file_exists($vue)) {
             require_once $vue;
