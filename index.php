@@ -1,14 +1,13 @@
 <?php
-// ============================================
-// index.php — Point d'entrée principal
-// Routeur simple de ShopESA
-// ============================================
 
 session_start();
 require_once 'config/db.php';
+require_once 'controllers/AuthController.php';
 
+// Récupère la page demandée dans l'URL
 $page = isset($_GET['page']) ? $_GET['page'] : 'accueil';
 
+// Sécurité : pages autorisées uniquement
 $pages_autorisees = [
     'accueil',
     'produits',
@@ -26,17 +25,33 @@ if (!in_array($page, $pages_autorisees)) {
     $page = 'accueil';
 }
 
-// Charge le header
-require_once 'views/partials/header.php';
+// Routing — appelle le bon contrôleur
+switch ($page) {
+    case 'inscription':
+        gererInscription();
+        break;
 
-// Charge la vue correspondante à la page
-$vue = 'views/' . $page . '.php';
+    case 'connexion':
+        gererConnexion();
+        break;
 
-if (file_exists($vue)) {
-    require_once $vue;
-} else {
-    require_once 'views/404.php';
+    case 'deconnexion':
+        gererDeconnexion();
+        break;
+
+    default:
+
+        require_once 'views/partials/header.php';
+
+        // Charge la vue
+        $vue = 'views/' . $page . '.php';
+        if (file_exists($vue)) {
+            require_once $vue;
+        } else {
+            require_once 'views/404.php';
+        }
+
+
+        require_once 'views/partials/footer.php';
+        break;
 }
-
-// Charge le footer
-require_once 'views/partials/footer.php';
