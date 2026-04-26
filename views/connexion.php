@@ -1,7 +1,7 @@
 <?php
 
 $titre_page = 'Connexion';
-require_once 'views/partials/header.php';
+require_once 'partials/header.php';
 ?>
 
 <div class="container">
@@ -58,4 +58,4 @@ require_once 'views/partials/header.php';
     </div>
 </div>
 
-<?php require_once 'views/partials/footer.php'; ?>
+<?php require_once 'partials/footer.php'; ?>

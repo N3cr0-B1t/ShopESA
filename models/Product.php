@@ -41,3 +41,33 @@ function getAllCategories() {
     $pdo = getDB();
     return $pdo->query("SELECT * FROM categories ORDER BY nom")->fetchAll();
 }
+function createProduct($data) {
+    $pdo = getDB();
+    $stmt = $pdo->prepare("
+        INSERT INTO products (nom, description, prix, stock, cat_id, image)
+        VALUES (:nom, :description, :prix, :stock, :cat_id, :image)
+    ");
+    $stmt->execute($data);
+}
+
+function updateProduct($id, $data) {
+    $pdo = getDB();
+    $stmt = $pdo->prepare("
+        UPDATE products
+        SET nom = :nom,
+            description = :description,
+            prix = :prix,
+            stock = :stock,
+            cat_id = :cat_id,
+            image = :image
+        WHERE id = :id
+    ");
+    $data[':id'] = $id;
+    $stmt->execute($data);
+}
+
+function deleteProduct($id) {
+    $pdo = getDB();
+    $stmt = $pdo->prepare("DELETE FROM products WHERE id = :id");
+    $stmt->execute([':id' => $id]);
+}

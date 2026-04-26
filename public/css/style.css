@@ -395,3 +395,172 @@ body {
         grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     }
 }
+/* ========================
+   ADMIN — CONTENEUR PRINCIPAL
+   ======================== */
+.admin-container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Titre + bouton ajouter côte à côte */
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.admin-header h1 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+}
+
+/* ========================
+   ADMIN — TABLEAU PRODUITS
+   ======================== */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.admin-table thead {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+/* Ligne zébrée pour faciliter la lecture */
+.admin-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.admin-table tbody tr:hover {
+    background-color: #eaf4fb;
+}
+
+.admin-table img {
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+/* ========================
+   ADMIN — BOUTONS ACTIONS
+   ======================== */
+.btn-add {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.btn-add:hover { opacity: 0.85; }
+
+.btn-edit {
+    background-color: #f39c12;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin-right: 5px;
+    transition: opacity 0.2s;
+}
+
+.btn-edit:hover { opacity: 0.85; }
+
+.btn-delete {
+    background-color: #e74c3c;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: opacity 0.2s;
+}
+
+.btn-delete:hover { opacity: 0.85; }
+
+/* ========================
+   ADMIN — FORMULAIRES
+   ======================== */
+.admin-container .form-group input,
+.admin-container .form-group select,
+.admin-container .form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.admin-container .form-group input:focus,
+.admin-container .form-group select:focus,
+.admin-container .form-group textarea:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.btn-submit {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-submit:hover { opacity: 0.85; }
+
+.btn-cancel {
+    background-color: #95a5a6;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-left: 10px;
+    transition: opacity 0.2s;
+}
+
+.btn-cancel:hover { opacity: 0.85; }
+
+/* ========================
+   ADMIN — RESPONSIVE MOBILE
+   ======================== */
+@media (max-width: 768px) {
+    .admin-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    /* Cacher colonnes moins importantes sur mobile */
+    .admin-table .col-description,
+    .admin-table .col-stock {
+        display: none;
+    }
+
+    .admin-table th,
+    .admin-table td {
+        padding: 10px 8px;
+        font-size: 0.85rem;
+    }
+}
