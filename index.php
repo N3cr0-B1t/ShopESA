@@ -4,7 +4,7 @@ session_start();
 require_once 'config/db.php';
 require_once 'controllers/AuthController.php';
 require_once 'controllers/ProductController.php';
-
+require_once 'controllers/CartController.php';
 // Récupère la page demandée dans l'URL
 $page = isset($_GET['page']) ? $_GET['page'] : 'accueil';
 
@@ -19,7 +19,10 @@ $pages_autorisees = [
     'panier',
     'commande',
     'historique',
-    'profil'
+    'profil',
+    'ajouter_panier',
+    'modifier_panier',
+    'supprimer_panier'
 ];
 
 if (!in_array($page, $pages_autorisees)) {
@@ -47,6 +50,21 @@ switch ($page) {
     case 'produit_detail':
         afficherDetailProduit();
         break;
+    case 'panier':
+    afficherPanier();
+    break;
+
+case 'ajouter_panier':
+    ajouterPanier();
+    break;
+
+case 'modifier_panier':
+    modifierPanier();
+    break;
+
+case 'supprimer_panier':
+    supprimerPanier();
+    break;
 
     default:
 

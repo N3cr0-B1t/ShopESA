@@ -50,20 +50,23 @@ function createProduct($data) {
     $stmt->execute($data);
 }
 
-function updateProduct($id, $data) {
+function updateProduct($id, $nom, $description, $prix, $stock, $cat_id, $image) {
     $pdo = getDB();
     $stmt = $pdo->prepare("
         UPDATE products
-        SET nom = :nom,
-            description = :description,
-            prix = :prix,
-            stock = :stock,
-            cat_id = :cat_id,
-            image = :image
-        WHERE id = :id
+        SET nom=:nom, description=:description, prix=:prix,
+            stock=:stock, cat_id=:cat_id, image=:image
+        WHERE id=:id
     ");
-    $data[':id'] = $id;
-    $stmt->execute($data);
+    $stmt->execute([
+        ':id'          => $id,
+        ':nom'         => $nom,
+        ':description' => $description,
+        ':prix'        => $prix,
+        ':stock'       => $stock,
+        ':cat_id'      => $cat_id,
+        ':image'       => $image
+    ]);
 }
 
 function deleteProduct($id) {
