@@ -1,8 +1,5 @@
 <?php
-// Affichage des erreurs — À RETIRER en production
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 session_start();
 require_once 'config/db.php';
 require_once 'controllers/AuthController.php';
@@ -26,7 +23,8 @@ $pages_autorisees = [
     'profil',
     'ajouter_panier',
     'modifier_panier',
-    'supprimer_panier'
+    'supprimer_panier',
+    'admin_commandes',
 ];
 
 if (!in_array($page, $pages_autorisees)) {
@@ -55,10 +53,10 @@ switch ($page) {
         afficherDetailProduit();
 
         break;
-
+        
     case 'panier':
-        gererPanier();
-        break;
+    gererPanier();
+    break;
 
     case 'commande':
         gererCommande();
@@ -66,6 +64,10 @@ switch ($page) {
 
     case 'historique':
     afficherHistorique();
+    break;
+
+    case 'admin_commandes':
+    afficherDashboardAdmin();
     break;
 
     default:

@@ -3,8 +3,9 @@
 // Logique des commandes
 // ============================================
 
-require_once 'models/Order.php';
-require_once 'models/Cart.php';
+// Requires
+require_once __DIR__ . '/../models/Order.php';
+require_once __DIR__ . '/../models/Cart.php';
 
 /**
  * Gèrer le formulaire et la validation de commande
@@ -114,5 +115,31 @@ function afficherHistorique() {
 
     require_once 'views/partials/header.php';
     require_once 'views/historique.php';
+    require_once 'views/partials/footer.php';
+}
+
+// Dashboard admin — gestion des commandes
+function afficherDashboardAdmin() {
+
+    // Protection admin
+    if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'admin') {
+        header('Location: /ShopESA/?page=connexion');
+        exit;
+    }
+
+    // Changer le statut si formulaire soumis
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $order_id = intval($_POST['order_id']);
+        $statut   = $_POST['statut'];
+        updateStatutCommande($order_id, $statut);
+        header('Location: /ShopESA/?page=admin_commandes&success=1');
+        exit;
+    }
+
+    // Récupérer toutes les commandes
+    $commandes = getAllCommandes();
+
+    require_once 'views/partials/header.php';
+    require_once 'views/admin_commandes.php';
     require_once 'views/partials/footer.php';
 }

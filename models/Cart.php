@@ -101,3 +101,15 @@ function verifierStockPanier($user_id) {
     }
     return $problemes;
 }
+
+function getTotalPanier($user_id) {
+    $pdo  = getDB();
+    $stmt = $pdo->prepare("
+        SELECT SUM(p.prix * c.quantite) AS total
+        FROM cart c
+        JOIN products p ON c.product_id = p.id
+        WHERE c.user_id = :user_id
+    ");
+    $stmt->execute([':user_id' => $user_id]);
+    return (float) $stmt->fetchColumn();
+}

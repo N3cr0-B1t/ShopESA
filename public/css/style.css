@@ -828,3 +828,17 @@ body {
     color: #555;
     line-height: 1.6;
 }
+
+/* ========================
+   STATUTS COMMANDES
+   ======================== */
+.badge-statut {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.statut-attente  { background-color: #fff3cd; color: #856404; }
+.statut-expediee { background-color: #cce5ff; color: #004085; }
+.statut-livree   { background-color: #d4edda; color: #155724; }
