@@ -64,6 +64,10 @@ switch ($page) {
         gererCommande();
         break;
 
+    case 'historique':
+    afficherHistorique();
+    break;
+
     default:
 
         require_once 'views/partials/header.php';

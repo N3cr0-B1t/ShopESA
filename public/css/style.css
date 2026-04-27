@@ -782,3 +782,49 @@ body {
     }
 }
 
+/* ========================
+   HISTORIQUE COMMANDES
+   ======================== */
+.badge-statut {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 500;
+}
+
+.statut-attente  { background:#fff3cd; color:#856404; }
+.statut-expediee { background:#cce5ff; color:#004085; }
+.statut-livree   { background:#d4edda; color:#155724; }
+
+.commande-detail {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.commande-detail h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.commande-adresse {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+}
+
+.commande-adresse h4 {
+    margin-bottom: 8px;
+    color: #2c3e50;
+}
+
+.commande-adresse p {
+    color: #555;
+    line-height: 1.6;
+}

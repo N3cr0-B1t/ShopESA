@@ -85,3 +85,34 @@ function gererCommande() {
     require_once 'views/commande.php';
     require_once 'views/partials/footer.php';
 }
+
+/**
+ * Affiche l'historique des commandes du client
+ */
+function afficherHistorique() {
+
+    // Vérifie que l'utilisateur est connecté
+    if (!isset($_SESSION['user_id'])) {
+        header('Location: /ShopESA/?page=connexion');
+        exit;
+    }
+
+    $user_id = $_SESSION['user_id'];
+
+    // Message de succès après une commande
+    $succes      = isset($_GET['succes']) ? true : false;
+    $commande_id = isset($_GET['commande_id']) ? (int)$_GET['commande_id'] : null;
+
+    // Récupère toutes les commandes de l'utilisateur
+    $commandes = getCommandesUtilisateur($user_id);
+
+    // Récupère le détail de la commande si demandé
+    $detail_commande = null;
+    if ($commande_id) {
+        $detail_commande = getCommandeDetail($commande_id, $user_id);
+    }
+
+    require_once 'views/partials/header.php';
+    require_once 'views/historique.php';
+    require_once 'views/partials/footer.php';
+}
