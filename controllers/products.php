@@ -56,25 +56,22 @@ if ($action === 'delete' && $id) {
 // ── UPLOAD IMAGE ───────────────────────────────────────────
 function uploadImage($file) {
     if (empty($file['name'])) return 'default.png';
+
+    // Vérification du type de fichier
+    $allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+    if (!in_array($file['type'], $allowedTypes)) {
+        die('Format non autorisé. Utilisez jpg, png ou webp.');
+    }
+
     $ext  = pathinfo($file['name'], PATHINFO_EXTENSION);
     $name = uniqid('prod_') . '.' . $ext;
-    move_uploaded_file($file['tmp_name'], '../uploads/' . $name);
+
+    // Chemin absolu pour éviter les erreurs
+    $destination = dirname(__DIR__) . '/uploads/' . $name;
+    move_uploaded_file($file['tmp_name'], $destination);
+
     return $name;
 }
-
-// ── CHARGEMENT DES VUES ────────────────────────────────────
-$categories = getAllCategories();
-
-if ($action === 'create') {
-    require '../views/gestionProduits/createprod.php';
-} elseif ($action === 'edit' && $id) {
-    $product = getProductById($id);
-    require '../views/gestionProduits/ModfProd.php';
-} else {
-    $products = getAllProducts();
-    require '../views/gestionProduits/listprod.php';
-}
-
 
 // ── CHARGEMENT DES VUES ────────────────────────────────────
 $categories = getAllCategories();

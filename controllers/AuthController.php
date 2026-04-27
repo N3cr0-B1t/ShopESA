@@ -47,7 +47,9 @@ function gererInscription() {
     }
 
     // Charge la vue inscription avec les données
+    require_once 'views/partials/header.php';
     require_once 'views/inscription.php';
+    require_once 'views/partials/footer.php';
 }
 
 /**
@@ -94,8 +96,9 @@ function gererConnexion() {
         }
     }
 
-
+    require_once 'views/partials/header.php';
     require_once 'views/connexion.php';
+    require_once 'views/partials/footer.php';
 }
 
 /**

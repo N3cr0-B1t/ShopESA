@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 require_once 'config/db.php';
 require_once 'controllers/AuthController.php';
@@ -70,7 +69,7 @@ case 'supprimer_panier':
 
         require_once 'views/partials/header.php';
 
-        $vue = 'views/' . $page . '.php';
+        $vue = 'views/accueil.php';
         if (file_exists($vue)) {
             require_once $vue;
         } else {
