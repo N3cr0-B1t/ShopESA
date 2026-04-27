@@ -1,3 +1,4 @@
+
 <?php
 
 session_start();
@@ -53,7 +54,7 @@ switch ($page) {
         afficherDetailProduit();
 
         break;
-        
+
     case 'panier':
     gererPanier();
     break;

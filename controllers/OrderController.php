@@ -4,8 +4,8 @@
 // ============================================
 
 // Requires
-require_once __DIR__ . '/../models/Order.php';
-require_once __DIR__ . '/../models/Cart.php';
+require_once 'models/Order.php';
+require_once 'models/Cart.php';
 
 /**
  * Gèrer le formulaire et la validation de commande
