@@ -53,7 +53,8 @@ $titre_page = htmlspecialchars($produit['nom']);
             <!-- Bouton ajout panier -->
             <?php if ($produit['stock'] > 0): ?>
                 <?php if (isset($_SESSION['user_id'])): ?>
-                    <form method="POST" action="/ShopESA/?page=ajouter_panier">
+                        <form method="POST" action="/ShopESA/?page=panier">
+                        <input type="hidden" name="action" value="ajouter">
                         <input type="hidden" name="product_id" value="<?= $produit['id'] ?>">
                         <div class="quantite-group">
                             <label for="quantite">Quantité :</label>

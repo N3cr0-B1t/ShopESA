@@ -564,3 +564,140 @@ body {
         font-size: 0.85rem;
     }
 }
+
+/* ========================
+   PANIER
+   ======================== */
+.panier-vide {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.panier-vide h3 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin: 15px 0 10px;
+}
+
+.panier-vide p {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.panier-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 25px;
+    align-items: start;
+}
+
+.panier-items {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    overflow: hidden;
+}
+
+.panier-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.panier-item:last-child { border-bottom: none; }
+
+.panier-item-image {
+    width: 70px;
+    height: 70px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.panier-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.panier-item-info { flex: 1; }
+
+.panier-item-info h4 {
+    font-size: 0.95rem;
+    color: #2c3e50;
+    margin-bottom: 4px;
+}
+
+.panier-item-prix {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+.panier-item-subtotal {
+    font-weight: 700;
+    color: #27ae60;
+    min-width: 120px;
+    text-align: right;
+    font-size: 0.95rem;
+}
+
+/* Récapitulatif */
+.panier-recap {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    position: sticky;
+    top: 80px;
+}
+
+.panier-recap h3 {
+    font-size: 1.1rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.recap-ligne {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 0.95rem;
+    color: #555;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.recap-total {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    border-bottom: none;
+    margin-top: 5px;
+    padding-top: 10px;
+    border-top: 2px solid #f0f0f0;
+}
+
+/* Responsive panier */
+@media (max-width: 768px) {
+    .panier-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .panier-item {
+        flex-wrap: wrap;
+    }
+
+    .panier-item-subtotal {
+        text-align: left;
+    }
+}

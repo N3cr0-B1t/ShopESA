@@ -82,6 +82,11 @@ function gererConnexion() {
                 $_SESSION['user_nom']  = $user['nom'];
                 $_SESSION['user_role'] = $user['role'];
 
+
+             // Initialise le compteur panier dès la connexion
+             require_once 'models/Cart.php';
+             $_SESSION['panier_count'] = compterArticlesPanier($user['id']);
+
                 // Rediriger selon le rôle
                 if ($user['role'] === 'admin') {
                     header('Location: /ShopESA/admin/');

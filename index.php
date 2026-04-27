@@ -1,4 +1,8 @@
 <?php
+// Affichage des erreurs — À RETIRER en production
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 require_once 'config/db.php';
 require_once 'controllers/AuthController.php';
@@ -48,22 +52,12 @@ switch ($page) {
 
     case 'produit_detail':
         afficherDetailProduit();
+
         break;
+
     case 'panier':
-    afficherPanier();
-    break;
-
-case 'ajouter_panier':
-    ajouterPanier();
-    break;
-
-case 'modifier_panier':
-    modifierPanier();
-    break;
-
-case 'supprimer_panier':
-    supprimerPanier();
-    break;
+        gererPanier();
+        break;
 
     default:
 
