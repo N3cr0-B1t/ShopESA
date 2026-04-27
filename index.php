@@ -8,6 +8,7 @@ require_once 'config/db.php';
 require_once 'controllers/AuthController.php';
 require_once 'controllers/ProductController.php';
 require_once 'controllers/CartController.php';
+require_once 'controllers/OrderController.php';
 // Récupère la page demandée dans l'URL
 $page = isset($_GET['page']) ? $_GET['page'] : 'accueil';
 
@@ -57,6 +58,10 @@ switch ($page) {
 
     case 'panier':
         gererPanier();
+        break;
+
+    case 'commande':
+        gererCommande();
         break;
 
     default:
