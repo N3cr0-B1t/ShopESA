@@ -6,6 +6,7 @@
 // Requires
 require_once 'models/Order.php';
 require_once 'models/Cart.php';
+require_once 'config/mailer.php';
 
 /**
  * Gèrer le formulaire et la validation de commande
@@ -67,6 +68,14 @@ function gererCommande() {
             if ($order_id) {
                 // Ajoute les articles de la commande
                 ajouterItemsCommande($order_id, $items);
+                // Envoie email de confirmation
+                $user = trouverUtilisateurParEmail($_SESSION['user_email'] ?? '');
+                envoyerConfirmationCommande(
+                $_SESSION['user_email'] ?? '',
+                $_SESSION['user_nom'],
+                $order_id,
+                $total_ttc
+               );
 
                 // Vide le panier
                 viderPanier($user_id);

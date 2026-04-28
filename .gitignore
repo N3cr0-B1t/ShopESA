@@ -32,6 +32,8 @@ desktop.ini
 
 # Dépendances Composer 
 vendor/
-
+composer.lock
 # Cache phpMyAdmin 
 phpmyadmin/
+#mailer
+config/mailer.php

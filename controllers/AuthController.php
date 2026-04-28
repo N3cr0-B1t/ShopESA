@@ -39,7 +39,9 @@ function gererInscription() {
 
         if (empty($erreurs)) {
             if (creerUtilisateur($nom, $email, $password)) {
-                $succes = "Compte créé avec succès ! Tu peux maintenant te connecter.";
+            require_once 'config/mailer.php';
+             envoyerEmailBienvenue($email, $nom);
+            $succes = "Compte créé avec succès ! Tu peux maintenant te connecter.";
             } else {
                 $erreurs[] = "Une erreur est survenue. Réessaie.";
             }
@@ -81,6 +83,7 @@ function gererConnexion() {
                 $_SESSION['user_id']   = $user['id'];
                 $_SESSION['user_nom']  = $user['nom'];
                 $_SESSION['user_role'] = $user['role'];
+                $_SESSION['user_email'] = $user['email']; 
 
 
              // Initialise le compteur panier dès la connexion
@@ -89,11 +92,10 @@ function gererConnexion() {
 
                 // Rediriger selon le rôle
                 if ($user['role'] === 'admin') {
-                    header('Location: /ShopESA/admin/');
+                header('Location: /ShopESA/?page=admin_dashboard');  
                 } else {
-                    header('Location: /ShopESA/?page=accueil');
-                }
-                exit;
+               header('Location: /ShopESA/?page=accueil');
+              } 
 
             } else {
                 $erreurs[] = "Email ou mot de passe incorrect.";

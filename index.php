@@ -1,6 +1,8 @@
 
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 require_once 'config/db.php';
 require_once 'controllers/AuthController.php';
@@ -26,6 +28,7 @@ $pages_autorisees = [
     'modifier_panier',
     'supprimer_panier',
     'admin_commandes',
+     'admin_dashboard',
 ];
 
 if (!in_array($page, $pages_autorisees)) {
@@ -69,6 +72,17 @@ switch ($page) {
 
     case 'admin_commandes':
     afficherDashboardAdmin();
+    break;
+
+
+    case 'admin_dashboard':
+    if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'admin') {
+        header('Location: /ShopESA/?page=connexion');
+        exit;
+    }
+    require_once 'views/partials/header.php';
+    require_once 'views/admin_dashboard.php';
+    require_once 'views/partials/footer.php';
     break;
 
     default:

@@ -37,7 +37,7 @@
                 <a href="/ShopESA/?page=historique">Mes commandes</a>
 
                         <?php if (isset($_SESSION['user_id']) && $_SESSION['user_role'] === 'admin'): ?>
-                            <a href="/ShopESA/?page=admin_commandes" class="btn-admin">Admin</a>
+                            <a href="/ShopESA/?page=admin_dashboard" class="btn-admin">Admin</a>
                 <?php endif; ?>
                 
                 <a href="/ShopESA/?page=deconnexion" class="btn-connexion">
