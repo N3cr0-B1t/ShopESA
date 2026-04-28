@@ -842,3 +842,226 @@ body {
 .statut-attente  { background-color: #fff3cd; color: #856404; }
 .statut-expediee { background-color: #cce5ff; color: #004085; }
 .statut-livree   { background-color: #d4edda; color: #155724; }
+
+
+
+/* ========================
+   RESPONSIVE GLOBAL
+   Mobile-first amélioré
+   ======================== */
+
+/* Tablette */
+@media (max-width: 992px) {
+
+    .produits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .detail-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .panier-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .commande-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+
+    /* Header */
+    .header .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .nav {
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .nav a {
+        font-size: 0.85rem;
+    }
+
+    /* Grilles */
+    .produits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Formulaires */
+    .form-card {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    /* Panier */
+    .panier-item {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .panier-item-subtotal {
+        text-align: left;
+        width: 100%;
+    }
+
+    /* Tableaux */
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    .admin-table {
+        min-width: 500px;
+    }
+
+    /* Boutons */
+    .btn {
+        font-size: 0.9rem;
+        padding: 8px 14px;
+    }
+
+    /* Filtres */
+    .filtres {
+        gap: 6px;
+    }
+
+    .btn-filtre {
+        font-size: 0.82rem;
+        padding: 6px 12px;
+    }
+
+    /* Recherche */
+    .recherche-wrapper {
+        flex-direction: column;
+    }
+
+    .recherche-input {
+        width: 100%;
+    }
+
+    /* Hero accueil */
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    /* Détail produit */
+    .detail-wrapper {
+        padding: 15px;
+    }
+
+    /* Panier recap */
+    .panier-recap {
+        position: static;
+    }
+
+    /* Commande recap */
+    .commande-recap {
+        position: static;
+    }
+}
+
+/* ========================
+   PAGE ACCUEIL
+   ======================== */
+.hero {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.hero .btn-primary {
+    background: white;
+    color: #3498db;
+    font-weight: 600;
+}
+
+.hero .btn-primary:hover {
+    background: #f0f0f0;
+}
+
+/* Avantages */
+.avantages {
+    background: #2c3e50;
+    color: white;
+    padding: 50px 0;
+    margin-top: 50px;
+}
+
+.avantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.avantage-card {
+    text-align: center;
+    padding: 20px;
+}
+
+.avantage-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+.avantage-card h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.avantage-card p {
+    font-size: 0.88rem;
+    opacity: 0.8;
+}
+
+/* Responsive hero */
+@media (max-width: 576px) {
+    .hero {
+        padding: 50px 20px;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .avantages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
