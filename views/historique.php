@@ -112,6 +112,13 @@ $titre_page = 'Mes commandes';
                                    class="btn btn-primary"
                                    style="padding:5px 10px; font-size:0.85rem;">
                                     👁️ Détail
+
+                                </a>
+
+                                <a href="/ShopESA/?page=facture_pdf&id=<?= $commande['id'] ?>"
+                                   class="btn btn-success"
+                                   style="padding:5px 10px; font-size:0.85rem;">
+                                   📄 PDF
                                 </a>
                             </td>
                         </tr>

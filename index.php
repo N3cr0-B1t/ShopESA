@@ -1,9 +1,11 @@
 
 <?php
+ob_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 session_start();
+require_once 'controllers/PdfController.php';
 require_once 'config/db.php';
 require_once 'controllers/AuthController.php';
 require_once 'controllers/ProductController.php';
@@ -14,6 +16,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'accueil';
 
 // Sécurité :
 $pages_autorisees = [
+    'facture_pdf',
     'accueil',
     'produits',
     'produit_detail',
@@ -72,6 +75,10 @@ switch ($page) {
 
     case 'admin_commandes':
     afficherDashboardAdmin();
+    break;
+
+    case 'facture_pdf':
+    genererFacturePDF();
     break;
 
 
